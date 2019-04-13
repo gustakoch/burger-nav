@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+@import "./variables";
+
+
+* {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 10vh;
+  background-color: $bgColor;
+  .logo {
+    color: $textColor;
+    letter-spacing: 5px;
+    font-size: 1em;
+  }
+  .logo span {
+    color: #FF4500;
+    font-size: 1.5em;
+  }
+  .nav-list {
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+    list-style: none;
+  }
+  .nav-list a {
+    text-decoration: none;
+    color: $textColor;
+    font-size: 1em;
+  }
+  .nav-list a:hover {
+    font-weight: bold;
+  }
+  .burger {
+    display: none;
+  }
+  .burger div {
+    width: 30px;
+    height: 3px;
+    background-color: #FFF;
+    margin: 5px;
+    transition: all 0.3s ease;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  nav .nav-list {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+  nav .nav-list {
+    position: absolute;
+    top: 10vh;
+    right: 0vh;
+    height: 90vh;
+    background-color: $bgColor;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    transform: translateX(100%);
+    transition: transform 400ms ease;
+  }
+  nav .nav-list li {
+    opacity: 0;
+  }
+  nav .burger {
+    display: block;
+    cursor: pointer;
+  }
+}
+
+nav .nav-active {
+  transform: translateX(0%);
+}
+
+@keyframes navListFade {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.close .line-one {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+.close .line-two {
+  opacity: 0;
+}
+.close .line-three {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
